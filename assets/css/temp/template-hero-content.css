@@ -1,0 +1,19 @@
+.grayscale { filter: grayscale(100%) }
+.hero-dimensions {
+    min-height: 450px;
+}
+.hero-dimensions a {
+    color: white;
+    text-decoration: underline;
+    transition: all 0.5s;
+}
+.hero--text p {
+    font-size:24px;
+    margin-bottom:1.25rem;
+    line-height:1.5;
+    font-weight:500;
+    max-width:750px;
+}
+@media (max-width:991px) {
+    .hero-dimensions { min-height:300px }
+}

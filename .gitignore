@@ -17,6 +17,10 @@
 /wp-*.php
 /xmlrpc.php
 
+# Modules
+/node_modules/
+/assets/images/
+
 # Configuration
 wp-config.php
 

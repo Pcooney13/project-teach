@@ -366,7 +366,7 @@
         </div>
         <div class="w-full order-0 md:order-1 md:w-1/2 md:pl-8">
             <div class="pt-map relative w-full flex-1">
-                <img class="-ml-1 md:ml-0" src="<?php echo get_template_directory_uri(); ?>/assets/images/new-pt-map-text-expanded.svg">
+                <img class="-ml-1 md:ml-0" src="<?php echo get_template_directory_uri(); ?>/assets/images/PT-map_9-1-23.png">
             </div>
         </div>
     </div>

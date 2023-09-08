@@ -1,4 +1,4 @@
-<header class="shadow-md sticky relative z-200 bg-white">
+<header class="border-b border-solid border-slate-300 sticky relative z-200 bg-white">
 	<div class="z-50 h-16 relative bg-off-white w-full flex items:center p-4 lg:hidden">
     	<button aria-label="Hamburger Menu Button" id="js-hamburger" class="group absolute left-0 top-0 h-16 w-16 flex items-center justify-center">		
         	<?php include( locate_template( 'templates/header/inline-svgs/hamburger-svg.php', false, false ) ); ?>

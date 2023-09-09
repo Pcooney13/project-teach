@@ -1,15 +1,15 @@
 <?php
 $title = get_sub_field('title');
-if ($date_2) {
+if (isset($date_2)) {
     $justify_date = 'justify-between';
 } else {
     $justify_date = 'justify-center';
 }
 ?>
 
-<div id="section<?php echo $block_count; ?>" class="section space-y-4 scroll-mt-12" x-cloak>
+<div id="section<?php echo $block_count; ?>" class="section space-y-4 scroll-mt-20" x-cloak>
     <h6 class="font-gotham-medium text-lg"><?php echo $title; ?></h6>
-    <?php if ($date_2) : ?>
+    <?php if (isset($date_2)) : ?>
         <div class="hidden sm:block bg-white rounded-xl shadow">
             <nav class="grid md:grid-cols-2 text-center p-2">
                 <button x-on:click="day1 = true, day2 = false" :class="day1 === true ? `text-white <?php echo $bg_color; ?> font-gotham-medium shadow-sm` : `text-slate-500 font-gotham <?php echo $hover_text_color; ?>`" class="p-2 rounded-lg <?php echo $text_color; ?> font-gotham-medium">
@@ -33,15 +33,17 @@ if ($date_2) {
             <div class="bg-white rounded-xl shadow" x-show="day<?php echo $day_count; ?> === true">
                 <div class="p-4 pb-0 bg-white rounded-xl mb-4 sticky top-16 flex">
                     <div class="flex items-center w-full <?php echo $justify_date; ?> p-4 <?php echo $bg_color_light; ?> rounded-lg shadow-sm">
-                        <?php if ($date_2) : ?>
+                        <?php if (isset($date_2)) : ?>
                             <button class="group rounded-full <?php echo $hover_bg_color; ?> transition opacity-0 pointer-events-none" :class="day2 === true && 'opacity-100 pointer-events-auto'" x-on:click="day1 = true, day2 = false">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="<?php echo $text_color_dark; ?> group-hover:text-white transition w-6 h-6">
                                     <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
                                 </svg>
                             </button>
                         <?php endif; ?>
-                        <h6 class="font-gotham-medium text-lg <?php echo $text_color_dark; ?>">Day <?php echo $day_count; ?> - <?php echo $banner_date; ?></h6>
-                        <?php if ($date_2) : ?>
+                        <h6 class="font-gotham-medium text-lg <?php echo $text_color_dark; ?>">
+                            <?php if (isset($date_2)) {echo 'Day ' . $day_count . ' - ';} ?><?php echo $banner_date; ?>
+                        </h6>
+                        <?php if (isset($date_2)) : ?>
                             <button class="group rounded-full <?php echo $hover_bg_color; ?> transition opacity-0 pointer-events-none" :class="day1 === true && 'opacity-100 pointer-events-auto'" x-on:click="day2 = true, day1 = false">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="<?php echo $text_color_dark; ?> group-hover:text-white transition w-6 h-6">
                                     <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
@@ -59,7 +61,7 @@ if ($date_2) {
                         ?>
                             <div class="space-y-4">
                                 <?php if ($module_title) : ?>
-                                    <h5 id="mod-<?php echo $mod_count; ?>" class="font-gotham-light text-xl <?php echo $text_color; ?> scroll-mt-32"><?php echo $module_title; ?></h5>
+                                    <h5 id="mod-<?php echo $mod_count; ?>" class="font-gotham-light text-xl <?php echo $text_color; ?> scroll-mt-40"><?php echo $module_title; ?></h5>
                                     <?php $mod_count++; ?>
                                 <?php endif; ?>
                                 <?php $event_total = count(get_sub_field('events')); ?>
@@ -101,7 +103,7 @@ if ($date_2) {
                                                             <p class="font-gotham-medium text-base text-slate-500 w-[90px] text-right mb-1">Moderator:</p>
                                                             <div class="flex flex-col">
                                                                 <?php foreach ($mods as $post) : setup_postdata($post);
-                                                                    echo '<button @click="open = true" class="text-left font-gotham text-slate-500 ' . $hover_text_color . ' transition">' . get_the_title() . '</button>';
+                                                                    echo '<a href="'.get_the_permalink().'" class="text-left font-gotham text-slate-500 ' . $hover_text_color . ' transition">' . get_the_title() . '</a>';
                                                                 endforeach;
                                                                 wp_reset_postdata(); ?>
                                                             </div>
@@ -112,7 +114,7 @@ if ($date_2) {
                                                                 <p class="font-gotham-medium text-base text-slate-500 w-[90px] text-right">Panelists:</p>
                                                                 <div class="flex flex-col">
                                                                     <?php foreach ($posts as $post) : setup_postdata($post);
-                                                                        echo '<button @click="open = true" class="text-left font-gotham mb-1 text-slate-500 ' . $hover_text_color . ' transition">' . get_the_title() . '</button>';
+                                                                        echo '<a href="'.get_the_permalink().'" class="text-left font-gotham mb-1 text-slate-500 ' . $hover_text_color . ' transition">' . get_the_title() . '</a>';
                                                                     endforeach;
                                                                     wp_reset_postdata(); ?>
                                                                 </div>
@@ -122,7 +124,7 @@ if ($date_2) {
                                                         <?php $posts = get_sub_field('presenters');
                                                         if ($posts) :
                                                             foreach ($posts as $post) : setup_postdata($post);
-                                                                echo '<button @click="open = true" class="text-left font-gotham text-slate-500 ' . $hover_text_color . ' transition">' . get_the_title() . '</button>';
+                                                                echo '<a href="'.get_the_permalink().'" class="text-left font-gotham text-slate-500 ' . $hover_text_color . ' transition">' . get_the_title() . '</a>';
                                                             endforeach;
                                                             wp_reset_postdata();
                                                         endif; ?>
@@ -130,8 +132,6 @@ if ($date_2) {
                                                 </div>
                                             </div>
                                         <?php endif; ?>
-
-
                                         <?php $event_count++; ?>
                                     <?php endwhile; ?>
                                 <?php endif; ?>

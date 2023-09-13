@@ -14,7 +14,7 @@
 	$post_types = get_post_types( $args, $output, $operator );
 	  
 	if ( $post_types ) { // If there are any custom public post types.  
-		$sidebar = true;
+		$sidebar = false;
 		// echo '<div class="flex flex-col md:flex-row max-w-screen-xl mx-auto mb-20">';
 	    	foreach ( $post_types  as $type ) {
 				if($post_type == $type->name) {

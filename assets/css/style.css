@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
-    .pt-text p strong {
-        @apply font-gotham-bold font-normal;
-    }
+.section>p {
+    @apply font-gotham-light text-lg;
+}
+.pt-text p strong {
+    @apply font-gotham-bold font-normal;
+}
 
 
 @charset "utf-8";

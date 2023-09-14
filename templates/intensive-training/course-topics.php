@@ -25,9 +25,4 @@ endif;
 echo '<div id="section' . $block_count . '" class="section space-y-4 scroll-mt-20">
     ' . $title . '
     ' . $topics . '
-<<<<<<< HEAD
 </div>'; ?>
-
-=======
-</div>'; ?>
->>>>>>> b459d6538b26cbb7fefaa466f490410af4239737

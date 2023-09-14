@@ -231,8 +231,150 @@
 			if ($resource_query->have_posts()) :
 				echo '<div class="flex flex-col gap-4">';
 				while ($resource_query->have_posts()) : $resource_query->the_post();
+<<<<<<< HEAD
 					if (strlen(get_the_title()) > 80 && strlen(get_the_title()) !== 80) {
 						$resource_title = substr(get_the_title(), 0, 80) . '...';
+=======
+					echo '<div class="flex gap-4 group min-h-[120px] rounded-xl overflow-hidden bg-white shadow transition hover:shadow-lg">
+							<a href="' . get_the_permalink() . '" class="w-40 h-auto">
+								<div class="relative h-full">
+									<div class="w-full absolute bg-gradient-to-bl from-black h-full transition duration-300 group-hover:opacity-0"></div>
+									<div class="absolute group-hover:opacity-0 transition duration-300 height-full right-0 top-0 mb-2 text-right mt-2 mr-2 flex items-center gap-1">
+										<p class="bg-purple-200 text-purple text-sm font-bold px-2 text-sm rounded-full dropshadow-md">Maternal</p>
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 bg-purple-200 text-purple rounded-full dropshadow-md p-1">
+											<path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+										</svg>
+									</div>
+									<div class="bg-center bg-cover h-full" style="background-image:url(https://project-teach.launchpaddev.com/app/uploads/2017/09/consulation-improve-health-bg-250x119.jpg);"></div>
+								</div>
+							</a>
+							<div class="flex-1 flex flex-col justify-center gap-2 py-4 pr-4">
+								<a href="' . get_the_permalink() . '" class="block font-gotham-medium text-black transition group-hover:text-blue">
+									' . get_the_title() . '
+								</a>
+								<div class="flex gap-4 flex-wrap">
+									<div class="">
+										<span class="font-gotham-bold text-sm mb-2 mr-px uppercase text-purple">Tags:</span>
+										<a href="https://project-teach.launchpaddev.com/pt_resources/?keyword=&amp;format%5B%5D=trauma" class="text-sm text-black font-gotham transtion duration-300 hover:text-purple">Trauma</a>
+									</div>
+									<div class="flex text-slate-500 gap-2">
+										<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mb-1" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+											<path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+											<path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+											<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+											<path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+										</svg>';
+					$featured_posts = get_field('authors');
+					$author_count = count(get_field('authors'));
+					if ($featured_posts) :
+						if ($author_count > 2) {
+							echo '<p class="text-left text-sm font-gotham text-slate-500">Multiple Presenters</p>';
+						} else {
+							foreach ($featured_posts as $post) :
+								setup_postdata($post);
+								echo '<p class="text-left text-sm font-gotham text-slate-500">' . get_the_title() . '</p>';
+							endforeach;
+							wp_reset_postdata();
+						}
+					endif;
+					echo '</div>
+								</div>
+							</div>
+						</div>';
+				endwhile;
+				wp_reset_postdata();
+				echo '</div>';
+			endif;
+			?>
+		</div>
+	</div>
+</div>
+
+<?php if (false) : ?>
+	<style>
+		.consultant-info p {
+			font-size: 16px
+		}
+
+		.consultant-info p,
+		#about-content p {
+			font-family: 'GothamProLight';
+			margin-bottom: 1rem;
+			line-height: 1.5;
+		}
+
+		.unclickable {
+			background: #fff !important;
+			opacity: 75%;
+			pointer-events: none;
+			color: #888;
+		}
+
+		.unclickable svg {
+			display: none;
+		}
+	</style>
+
+	<!-- Queries -->
+	<?php
+	// Post Query
+	$post_args = array(
+		'numberposts'	=> -1,
+		'post_type'		=> 'post',
+		'meta_query'	=> array(
+			'relation'		=> 'OR',
+			array(
+				'key'		=> 'authors_$_author',
+				'compare'	=> '=',
+				'value'		=> get_the_ID(),
+			)
+		)
+	);
+	$post_query = new WP_Query($post_args);
+	if ($post_query->have_posts()) {
+		$post_button_classes = 'bg-blue-200';
+	} else {
+		$post_button_classes = 'unclickable';
+	}	// Event Query
+	$event_query = new WP_Query(
+		array(
+			'numberposts' => -1,
+			'post_type' => 'events',
+			'meta_value' => get_the_ID(),
+			'meta_compare' => 'LIKE',
+		)
+	);
+	// Resource Query
+	$resource_query = new WP_Query(
+		array(
+			'numberposts' => -1,
+			'post_type' => 'pt_resources',
+			'meta_value' => get_the_ID(),
+			'meta_compare' => 'LIKE',
+		)
+	);
+?>
+<div class="max-w-screen-lg py-16 lg:max-w-screen-xl mx-auto px-4 md:px-0 flex flex-col md:flex-row">
+	<!-- Post Content -->
+	<div class="w-full md:w-1/3">
+		<div class="mb-12 md:mb-0 border-b shadow-xl rounded-xl sticky top-[5rem]">
+			<div class="aspect-square bg-cover py-12 rounded-t-xl bg-center" style="background-image:url(<?php echo get_the_post_thumbnail_url('', 'large'); ?>)"></div>
+			<div class="p-4 bg-white rounded-b-xl flex flex-col gap-4">
+				<?php
+				$teams = get_the_terms($post->ID, 'consult_team');
+				//fix for consultants with multiple teams (liasions + child example)
+				foreach ($teams as $term) {
+					if ($term->slug === 'child') {
+						$text_color = 'text-blue';
+						$hover_text_color = 'hover:text-blue';
+						$group_hover_text_color = 'group-hover:text-blue';
+						$bg_color = 'bg-blue';
+						$team =
+						'<div class="inline-block text-sm font-gotham-medium '.$text_color.' -mb-2">
+							Child & Adolescent Team Member
+						</div>';
+>>>>>>> dad0d8347fd7409ed39e420c42c7b1d25528f7fa
 					} else {
 						$resource_title = get_the_title();
 					}
@@ -345,3 +487,7 @@
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
+=======
+<?php endif; ?>
+>>>>>>> dad0d8347fd7409ed39e420c42c7b1d25528f7fa

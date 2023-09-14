@@ -91,29 +91,6 @@
         font-family: arial, verdana;
         font-size: 12px;
     }
-
-<?php require_once('header.php');
-
-// Post Query
-$post_args = array(
-    'numberposts'    => -1,
-    'post_type'        => 'events',
-    'meta_query'    => array(
-        'relation'        => 'OR',
-        array(
-            'compare'    => '=',
-            'value'        => 5807,
-        )
-    )
-);
-$post_query = new WP_Query($post_args);
-
-?>
-
-
-
-/* Mailchimp Archive */
-<style>
     .display_archive {
         font-family: arial, verdana;
         font-size: 12px;

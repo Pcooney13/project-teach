@@ -1,7 +1,6 @@
 <?php 
 	$event_type = get_field('event_type');
 	if ($event_type === 'intensive') :
-		// include( locate_template( 'templates/singles/test-event.php', false, false ) );
 		include( locate_template( 'templates/singles/event-intensive.php', false, false ) );
 	else: ?>
 		<style>
@@ -16,10 +15,6 @@
 			}
 		</style>
 		<section class="max-w-screen-xl mx-auto mb-12">
-			<div class="flex items-center justify-end mb-2">
-				<span class="font-gotham-light text-sm mr-2">SHARE</span>
-				<?php echo do_shortcode('[Sassy_Social_Share]'); ?>
-			</div>
     		<div class="px-4 py-8 width-full bg-white mb-4 font-gotham">	
 				<div class="flex md:px-4">
 					<!-- Event Content -->

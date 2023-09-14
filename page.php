@@ -1,5 +1,6 @@
 <?php
     require_once('header.php');
+    echo get_the_content();
     if (have_rows('content')): 
         while (have_rows('content')) : the_row();
 

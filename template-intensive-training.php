@@ -27,6 +27,7 @@ $display_register_button = get_field('display_register_button');
 $register_link = get_field('register_link');
 
 if ($event_type) {
+    $type_of_event = 'child';
     $text_color = 'text-blue';
     $text_color_dark = 'text-sky-600';
     $hover_text_color = 'hover:text-blue';
@@ -37,6 +38,7 @@ if ($event_type) {
     $hover_bg_color = 'hover:bg-blue';
     $border_color = 'border-blue';
 } else {
+    $type_of_event = 'maternal';
     $text_color = 'text-purple-700';
     $text_color_dark = 'text-purple';
     $hover_text_color = 'hover:text-purple-700';

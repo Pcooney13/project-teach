@@ -25,37 +25,6 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-TJ7S5MK');
     </script>
-    <!-- TypeKit - Working on replacing with googlefont -->
-    <script>
-        (function(d) {
-            var config = {
-                    kitId: 'hyv7nlq',
-                    scriptTimeout: 3000,
-                    async: true
-                },
-                h = d.documentElement,
-                t = setTimeout(function() {
-                    h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-                }, config.scriptTimeout),
-                tk = d.createElement("script"),
-                f = false,
-                s = d.getElementsByTagName("script")[0],
-                a;
-            h.className += " wf-loading";
-            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-            tk.async = true;
-            tk.onload = tk.onreadystatechange = function() {
-                a = this.readyState;
-                if (f || a && a != "complete" && a != "loaded") return;
-                f = true;
-                clearTimeout(t);
-                try {
-                    Typekit.load(config)
-                } catch (e) {}
-            };
-            s.parentNode.insertBefore(tk, s)
-        })(document);
-    </script>
     <!-- Favicon -->
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/assets/favicon/favicon.ico">
@@ -79,8 +48,6 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="format-detection" content="telephone=no">
     <meta name="keywords" content="">
-    <!-- Easy Appt plugin CSS -- Working on removing this plugin cause it has no use. -->
-    <link rel='stylesheet' id='ea-frontend-style-css' href='https://easy-appointments.net/wordpress/wp-content/plugins/easy-appointments/css/eafront.css?ver=4.9.8' type='text/css' media='all' />
     <!-- Alpine -->
     <script src="//unpkg.com/alpinejs" defer></script>
     <!-- Lastly call wp_head -->
@@ -89,52 +56,14 @@
 
 <body class="bg-off-white">
 
-    <!-- Modal -->
-    <?php
-    $page_options = get_field('specify_pages_for_modal', 'options');
-    $modal_pages = get_field('modal_pages', 'options');
-    $show_modal = get_field('show_modal', 'options');
-
-    if ($page_options && $modal_pages) {
-        // If 'hide' is toggled hide modal on the specific pages
-        if ($page_options === 'hide') {
-            if (!is_single($modal_pages) && !is_page($modal_pages)) {
-                include(locate_template('templates/utilities/modal.php', false, false));
-            }
-        }
-        // If 'show' is toggled show modal only on the specific pages
-        if ($page_options === 'show') {
-            if (is_single($modal_pages) || !is_page($modal_pages)) {
-                include(locate_template('templates/utilities/modal.php', false, false));
-            }
-        }
-    } elseif ($show_modal) {
-        // If neither is toggled show modal on all pages
-        include(locate_template('templates/utilities/modal.php', false, false));
-    }
-    ?>
-
-    <!-- Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ7S5MK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- <div id="header-wrap" class="header-wrap"> -->
-
-    <?php
-    $show_banner = get_field('show_banner', 'options');
-    if (is_page(array('live-training', 'follow-up-sessions', 'category-intensive-training', 'online-courses', 'cme-certified-education')) || is_archive('events') || is_single()) :
-        include(locate_template('templates/utilities/site-notices.php', false, false));
-    elseif ($show_banner) :
-        if (!is_page('child')) :
-            include(locate_template('templates/utilities/important-notice.php', false, false));
-        endif;
-    endif;
-    ?>
-
-    <?php
-    $show_modal = get_field('show_modal', 'options');
-    if (false && $show_banner) get_template_part('templates/modal');
-    ?>
+    <!-- Site Notice -->
+    <?php $show_banner = get_field('show_banner', 'options');
+    if (is_archive('events') || is_single()) :
+        include(locate_template('templates/utilities/site-banner.php', false, false));
+    endif; ?>
 
     <!-- Above Navbar Content -->
     <div class="flex relative h-24 items-center justify-center font-gotham-light text-sm px-4 bg-white z-300">
@@ -212,20 +141,6 @@
         </div>
     </div>
 
-    <style>
-        #gform_submit_button_7 {
-            font-family: 'GothamProBold';
-            font-size: 16px;
-            color: #fff;
-            border-radius: 9999px;
-            margin: 0 1rem;
-            padding: 1rem 2rem;
-            background-color: #3a0e79;
-            transition: all .3s;
-        }
-    </style>
-
     <!-- Navbar Content -->
     <?php include(locate_template('templates/header/default-nav.php', false, false)); ?>
-    <?php include(locate_template('templates/banners/page-banner.php', false, false)); ?>
     <?php include(locate_template('templates/utilities/scroll-up.php', false, false)); ?>

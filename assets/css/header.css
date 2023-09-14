@@ -1,48 +1,6 @@
 /* Basics */
-html {
-  scroll-behavior: smooth;
-}
-.mb-4-p > p {
-    margin-bottom:1rem;
-}
-main > p,  main > span,
-main > h1, main > h2, main > h3, 
-main > h4, main > h5, main > h6,
-main > ul, main > ol {
-    padding:0 1rem;
-    margin:1rem 0;
-}
-main > ul, main > ol {
-    padding-left:2rem;
-    list-style:disc;
-}
-main > ul li, main > ol li {
-    margin-bottom:1rem;
-}
-main strong {
-    font-weight:normal;
-    font-family:'GothamProMedium';
-}
-main section ul {
-    list-style:disc;
-    padding-left:1.5rem;
-}
-main section ul li {
-    margin-bottom:.5rem;
-}
 #search-button {
     margin-left:-5px;
-}
-/* Specifics */
-body:not(.user-is-tabbing) button:focus,
-body:not(.user-is-tabbing) input:focus,
-body:not(.user-is-tabbing) select:focus,
-body:not(.user-is-tabbing) textarea:focus {    
-    outline: none;
-}
-
-.footer-logo {
-    filter: brightness(0) invert(1);
 }
 #menu-primary-navigation {
     width:100%;
@@ -188,30 +146,6 @@ nav .active {
     flex-direction:column;
     background-color:#c9c9c9;
 }
-/* HERO BANNER SECTION START */
-.hero--image {
-	filter: grayscale(100%);
-}
-.hero--content {
-	z-index: 5;
-	min-height: 400px;
-	text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
-}
-.hero--content a {
-	color: white;
-	text-decoration: underline;
-	transition: all 0.5s;
-}
-.hero--content p {
-	font-size:22px;
-	margin-bottom:15px;
-}
-/* HERO BANNER SECTION END */
-@media (max-width:991px) {
-	.hero--content {
-		min-height:300px;
-	}
-}
 @media(min-width:1024px) {   
     #menu-primary-navigation {
         width:calc(100% - 9rem);
@@ -228,46 +162,4 @@ nav .active {
         z-index: -3;
         background-color:#ddd;
     }
-}
-
-/* START - Dropdown toggle CSS */
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-input:checked + .slider {
-    background-color: #039fda;
-}
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-.slider:before {
-    border-radius: 50%;
-}
-.switch {
-    width: 60px;
-    height: 34px;
-}
-/* END - Dropdown toggle CSS */
-
-/* START - checklist sticky css */
-.classification-box,
-#rating-key {
-    top: 63px;
-}
-/* END - checklist sticky css */
-/* Map css */
-.removed {
-    flex-grow: 0.00001;
-    width:0;
-    opacity:0;
 }

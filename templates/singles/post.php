@@ -21,21 +21,8 @@
 				<div class="flex-1">
 					<section id="post__featured">
 						<article id="post-<?php the_ID(); ?>" class="post post--featured mx-4 md:mx-0">
-							<!-- Share Buttons -->
-							<?php if( get_field('aap_newsletter') !== true ) : ?>
-								<div class="flex items-center mb-2 pb-4 pt-0 hidden md:flex">									
-									<div class="share__content" style="margin-left:auto;">
-										<span class="share__text">SHARE</span>
-										<?php echo do_shortcode('[Sassy_Social_Share]'); ?>
-									</div>
-								</div>
-							<?php endif; ?>
 							<!-- Title -->
-							<?php if( get_field('aap_newsletter') === true ) : ?>
-								<!-- <h3 class="font-bold text-lg md:text-2xl mb-4"><?php the_title(); ?></h3> -->
-							<?php else: ?>
-								<h3 class="post__title post__title--featured"><?php the_title(); ?></h3>
-							<?php endif; ?>									
+							<h3 class="post__title post__title--featured"><?php the_title(); ?></h3>
 							<!-- Post Image & Date -->
 							<?php if (get_the_post_thumbnail()):?>
                     		<div class="post__image post__image--featured" 
@@ -70,18 +57,14 @@
 								</div>
 							<?php endif;?>								
 							<!-- Post Content & Video -->
-							<?php if( get_field('aap_newsletter') === true ) :
-								get_template_part("templates/content", "aap-newsletter"); ?>
-							<?php else : ?>
-                    			<div class="<?php echo $content_category; ?>">									
-                        			<?php if (get_field('featured_video')):?>
-										<div class='video'><iframe src='<?php the_field('video');?>' frameborder='0' allowfullscreen></iframe></div>
-									<?php endif;?>
-									<?php if (get_the_content()) :
-										the_content();
-									endif;?>
-                    			</div>
-							<?php endif; ?>
+                    		<div class="<?php echo $content_category; ?>">									
+                        		<?php if (get_field('featured_video')):?>
+									<div class='video'><iframe src='<?php the_field('video');?>' frameborder='0' allowfullscreen></iframe></div>
+								<?php endif;?>
+								<?php if (get_the_content()) :
+									the_content();
+								endif;?>
+                    		</div>
                 		</article>
             		</section>
 

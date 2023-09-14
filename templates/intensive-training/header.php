@@ -1,4 +1,3 @@
-<div class="text-purple-700 hover:text-purple-700"></div>
 <div class="pt-8 pb-16 md:pt-16 bg-white relative">
     <div class="relative flex flex-col md:flex-row max-w-screen-xl mx-auto px-4 md:px-0">
         <div class="w-full order-1 md:order-1 justify-center md:w-1/2 md:pr-8 gap-6 flex flex-col">
@@ -35,8 +34,8 @@
                         <p class="font-gotham-medium flex-1"><?php echo $location; ?></p>
                     </div>
                     <div class="pt-6 flex items-center gap-4">
-                        <a href="<?php echo $register_link; ?>" class="py-2 px-12 font-gotham-medium text-center text-lg text-white rounded-full bg-purple">Register Now</a>
-                        <a href="#section6" class="py-2 px-8 font-gotham-medium text-center text-lg text-purple-700 rounded-full transition flex gap-1 border border-solid border-purple-700 items-center">
+                        <a href="<?php echo $register_link; ?>" class="py-2 px-12 font-gotham-medium text-center text-lg text-white rounded-full <?php echo $bg_color; ?>">Register Now</a>
+                        <a href="#section6" class="py-2 px-8 font-gotham-medium text-center text-lg <?php echo $text_color; ?> rounded-full transition flex gap-1 border border-solid <?php echo $border_color; ?> items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M3 4l18 0" />

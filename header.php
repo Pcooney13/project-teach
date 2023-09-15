@@ -62,7 +62,7 @@
     <?php
     $show_banner = get_field('show_banner', 'options');
     if (is_archive('events') || is_single()) :
-        include(locate_template('templates/utilities/site-notices.php', false, false));
+        include(locate_template('templates/utilities/site-banner.php', false, false));
     endif;
     ?>
 
@@ -144,5 +144,4 @@
 
     <!-- Navbar Content -->
     <?php include(locate_template('templates/header/default-nav.php', false, false)); ?>
-    <?php include(locate_template('templates/banners/page-banner.php', false, false)); ?>
     <?php include(locate_template('templates/utilities/scroll-up.php', false, false)); ?>

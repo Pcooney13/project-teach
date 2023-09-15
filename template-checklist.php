@@ -88,7 +88,7 @@ require_once('header.php');
 
             <div class="-mx-4 sm:mx-0 flex-1">
                 <!-- Top legend for checklist -->
-                <div class="z-10 flex sticky bg-white top-64 border-b border-black-100 items-center">
+                <div class="z-10 flex sticky bg-white top-16 border-b border-black-100 items-center">
                     <div class="w-40 sm:w-56 md:w-64  border-r border-black-200 px-8">
                         Topic
                     </div>

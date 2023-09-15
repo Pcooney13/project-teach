@@ -11,6 +11,8 @@ function site_scripts() {
     // == CSS ==
     // Gotham Fonts
     wp_enqueue_style( 'fonts', get_template_directory_uri() . '/assets/css/fonts.css');
+    // Header - Temporary
+    wp_enqueue_style( 'header', get_template_directory_uri() . '/assets/css/header.css');
     // Tailwind
     wp_enqueue_style( 'Tailwind', get_template_directory_uri() . '/assets/css/tailwind.css');
     // Register main stylesheet

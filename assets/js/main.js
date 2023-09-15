@@ -1,5 +1,7 @@
 window.addEventListener('load', function () {
-	// Scroll Up Button
+	/*
+		Scroll Up Button
+	**/
 	scrollUp = document.getElementById("scrollUp");
 	scrollUp.addEventListener('click', function() {
 		scrollTo(0,0)

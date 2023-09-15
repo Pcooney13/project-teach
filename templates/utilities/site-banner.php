@@ -10,8 +10,8 @@ $banner_text = get_field('text', 'options');
 			<svg viewBox="0 0 2 2" class="hidden md:inline mx-2 h-0.5 w-0.5 fill-current" aria-hidden="true">
 				<circle cx="1" cy="1" r="1" />
 			</svg>
-			<span class="hidden md:inline"><?php echo $banner_text; ?></span>
-			<span class="hidden md:inline" aria-hidden="true">&rarr;</span>
+			<span class="hidden md:inline font-gotham"><?php echo $banner_text; ?></span>
+			<span class="hidden md:inline font-gotham" aria-hidden="true">&rarr;</span>
 		</a>
 	</p>
 	<div class="flex flex-1 justify-end">

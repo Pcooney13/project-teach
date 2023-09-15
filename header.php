@@ -59,11 +59,12 @@
     <!-- Google Tag Manager -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJ7S5MK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <!-- Site Notice -->
-    <?php $show_banner = get_field('show_banner', 'options');
+    <?php
+    $show_banner = get_field('show_banner', 'options');
     if (is_archive('events') || is_single()) :
         include(locate_template('templates/utilities/site-banner.php', false, false));
-    endif; ?>
+    endif;
+    ?>
 
     <!-- Above Navbar Content -->
     <div class="flex relative h-24 items-center justify-center font-gotham-light text-sm px-4 bg-white z-300">
